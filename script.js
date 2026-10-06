@@ -58,6 +58,7 @@ function clearDraft() {
 // 3. LocalStorage Persistence
 // ==========================================
 function loadNotes() {
+// Handle local storage retrieval and parse saved notes array
   const saved = localStorage.getItem("quicknotes_data");
   if (saved) {
     try {
