@@ -77,9 +77,7 @@ function saveNotes() {
 // ==========================================
 function isDuplicate(text) {
   const cleanText = text.trim().toLowerCase();
-  return notes.some(
-    (note) => note.text.trim().toLowerCase() === cleanText
-  );
+  return notes.some((note) => note.text.trim().toLowerCase() === cleanText);
 }
 
 function updateNoteCountDisplay(count) {
@@ -105,7 +103,7 @@ function renderNotes() {
   // Filter notes by search input query
   const query = searchInput ? searchInput.value.trim().toLowerCase() : "";
   const filteredNotes = notes.filter((note) =>
-    note.text.toLowerCase().includes(query)
+    note.text.toLowerCase().includes(query),
   );
 
   updateNoteCountDisplay(notes.length);
@@ -184,7 +182,8 @@ function handleAddNote(event) {
   }
 
   if (isDuplicate(text)) {
-    errorMessage.textContent = "Note not added: A duplicate note already exists.";
+    errorMessage.textContent =
+      "Note not added: A duplicate note already exists.";
     return;
   }
 
@@ -210,6 +209,7 @@ function handleAddNote(event) {
 }
 
 function deleteNote(id) {
+  // Validate and filter out the deleted note by ID
   notes = notes.filter((note) => note.id !== id);
   saveNotes();
   renderNotes();
