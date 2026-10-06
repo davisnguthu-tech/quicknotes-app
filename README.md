@@ -1,6 +1,6 @@
 # QuickNotes App
 
-QuickNotes is a lightweight, responsive web-based note-taking application designed to help users quickly capture, categorize, search, and manage daily thoughts and tasks with persistent local storage.
+QuickNotes is a lightweight, responsive web based note taking application designed to help users quickly capture, categorize, search, and manage daily thoughts and tasks with persistent local storage.
 
 ## Features
 
@@ -9,8 +9,8 @@ QuickNotes is a lightweight, responsive web-based note-taking application design
 - **Live Search Filtering**: Search notes in real time with case-insensitive word matching.
 - **Persistent Storage**: Retains all note data across browser sessions using `localStorage`.
 - **Dynamic Counter**: Displays formatted status messages for zero, single, or multiple notes.
-- **Responsive Interface**: Mobile-first design that adapts form layouts on screens 600px or narrower.
-- **Bulk Clear Option**: One-click option to clear all saved notes with standard browser confirmation.
+- **Responsive Interface**: Mobile first design that adapts form layouts on screens 600px or narrower.
+- **Bulk Clear Option**: One click option to clear all saved notes with standard browser confirmation.
 
 ## How to Run Locally
 
