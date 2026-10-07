@@ -1,27 +1,27 @@
 // ==========================================
 // 1. DOM Element Selections
 // ==========================================
-// Previous elements
-const noteTextarea = document.getElementById("note-text");
-const charCountElem = document.getElementById("char-count");
-const wordCountElem = document.getElementById("word-count");
-const clearBtn = document.getElementById("clear-btn");
-const themeToggleBtn = document.getElementById("theme-toggle");
+// Refactored to use document.querySelector with ID selectors
+const noteTextarea = document.querySelector("#note-text");
+const charCountElem = document.querySelector("#char-count");
+const wordCountElem = document.querySelector("#word-count");
+const clearBtn = document.querySelector("#clear-btn");
+const themeToggleBtn = document.querySelector("#theme-toggle");
 
 // Project 1 additions
-const noteForm = document.getElementById("note-form");
-const noteCategory = document.getElementById("note-category");
-const errorMessage = document.getElementById("error-message");
-const searchInput = document.getElementById("search-input");
-const noteCountElem = document.getElementById("note-count");
-const notesList = document.getElementById("notes-list");
-const clearAllNotesBtn = document.getElementById("clear-all-btn");
+const noteForm = document.querySelector("#note-form");
+const noteCategory = document.querySelector("#note-category");
+const errorMessage = document.querySelector("#error-message");
+const searchInput = document.querySelector("#search-input");
+const noteCountElem = document.querySelector("#note-count");
+const notesList = document.querySelector("#notes-list");
+const clearAllNotesBtn = document.querySelector("#clear-all-btn");
 
 // Application Data State
 let notes = [];
 
 // ==========================================
-// 2. Character & Word Counter Functions (From Previous Code)
+// 2. Character & Word Counter Functions
 // ==========================================
 function updateCounts() {
   const text = noteTextarea.value;
@@ -58,7 +58,7 @@ function clearDraft() {
 // 3. LocalStorage Persistence
 // ==========================================
 function loadNotes() {
-// Handle local storage retrieval and parse saved notes array
+  // Handle local storage retrieval and parse saved notes array
   const saved = localStorage.getItem("quicknotes_data");
   if (saved) {
     try {
@@ -78,7 +78,9 @@ function saveNotes() {
 // ==========================================
 function isDuplicate(text) {
   const cleanText = text.trim().toLowerCase();
-  return notes.some((note) => note.text.trim().toLowerCase() === cleanText);
+  return notes.some(
+    (note) => note.text.trim().toLowerCase() === cleanText
+  );
 }
 
 function updateNoteCountDisplay(count) {
@@ -104,7 +106,7 @@ function renderNotes() {
   // Filter notes by search input query
   const query = searchInput ? searchInput.value.trim().toLowerCase() : "";
   const filteredNotes = notes.filter((note) =>
-    note.text.toLowerCase().includes(query),
+    note.text.toLowerCase().includes(query)
   );
 
   updateNoteCountDisplay(notes.length);
@@ -183,8 +185,7 @@ function handleAddNote(event) {
   }
 
   if (isDuplicate(text)) {
-    errorMessage.textContent =
-      "Note not added: A duplicate note already exists.";
+    errorMessage.textContent = "Note not added: A duplicate note already exists.";
     return;
   }
 
